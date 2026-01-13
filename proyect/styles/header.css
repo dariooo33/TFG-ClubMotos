@@ -26,31 +26,4 @@ header ul li a{
     text-align: end;
 }
 
-header{
-    background-color: rgb(17, 17, 17);
-    align-items: center;
-    padding: 20px;
-    margin: 0;
-}
-header ul{
-    display: flex;
-    list-style: none;
-}
-header ul li{
-    margin:10px 20px 10px 0;
-    padding: 5px;
-}
-header ul li a{
-    text-decoration: none;
-    color:white;
-}
-
-#botonHome{
-    width: 70%;
-    text-align: center;
-}
-#botonPerfil{
-    width: 20%;
-    text-align: end;
-}
 
