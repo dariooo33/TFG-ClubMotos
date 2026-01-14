@@ -1,7 +1,8 @@
 footer{
     margin-top: 100000px;
-    padding: 10px;
     margin: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
     width: 100%;
     background-color: black;
     text-align: center;
