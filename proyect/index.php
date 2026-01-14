@@ -23,9 +23,9 @@
             ANYTIME
         </h2>
         <br>
-        <button type="button"><a href="">Supermotard</a></button>
-        <button type="button"><a href="">Motrocross</a></button>
-        <button type="button"><a href="">Enduro</a></button>
+        <button type="button"><b><a href="">Supermotard</a></b></button>
+        <button type="button"><b><a href="">Motrocross</a></b></button>
+        <button type="button"><b><a href="">Enduro</a></b></button>
     </main>
     <?php
         include_once "includes/footer.php"
