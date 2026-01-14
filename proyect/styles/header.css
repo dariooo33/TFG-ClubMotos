@@ -1,29 +1,56 @@
-header{
-    background-color: rgb(17, 17, 17);
-    align-items: center;
-    padding: 20px;
-    margin: 0;
-}
-header ul{
-    display: flex;
-    list-style: none;
-}
-header ul li{
-    margin:10px 20px 10px 0;
-    padding: 5px;
-}
-header ul li a{
-    text-decoration: none;
-    color:white;
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, sans-serif;
 }
 
-#botonHome{
-    width: 70%;
-    text-align: center;
-}
-#botonPerfil{
-    width: 20%;
-    text-align: end;
+.header {
+height: 70px;
+background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+align-items: center;
+padding: 0 50px;
+color: #fff;
 }
 
+nav a {
+color: #ddd;
+text-decoration: none;
+margin-right: 20px;
+font-size: 14px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
 
+nav a:hover {
+color: #f0c36d;
+}
+
+.nav-left {
+display: flex;
+align-items: center;
+}
+
+.nav-center {
+justify-self: center;
+}
+
+.home-btn {
+font-size: 16px;
+font-weight: bold;
+color: #f0c36d;
+}
+
+.nav-right {
+justify-self: end;
+}
+
+.profile-btn svg {
+stroke: #ddd;
+}
+
+.profile-btn:hover svg {
+stroke: #f0c36d;
+}

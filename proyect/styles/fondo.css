@@ -1,3 +1,15 @@
-body{
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     background-color: black;
+}
+
+/* Contenido principal de cada página */
+main {
+    flex: 1;
 }
