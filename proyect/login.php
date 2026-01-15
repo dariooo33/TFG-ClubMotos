@@ -1,5 +1,19 @@
 <?php
+    include_once "config/dbConect.php"; // Esto conecta y selecciona la base de datos
+    include_once "includes/functions.php"; //Añade funciones predefinidas en functions.php
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $errores = [];
+
+        $correo = $_POST['email'];
+        if(empty($correo)){
+            $errores[] = "El campo email esta vacio";
+        }elseif(!verificarEmail($correo)){
+            $errores[] = "Email invalido";
+        }else{
+            $consult = "SELECT contrasena FROM Usuario WHERE email = '$correo'";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
