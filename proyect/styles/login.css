@@ -1,51 +1,74 @@
 main{
-    background-color: rgb(17, 17, 17);
-    opacity: 70%;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    max-width: 40%;
-    margin: auto;
-    margin-top: 50px;
-    color: rgb(255, 255, 255);
+    
 }
+
+/* ===== Recuadro interior ====== */
+
+.recuadro{
+    background-color: #1e1f29;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    margin-top: 160px;
+    width: 40%;
+    color: #e6e6f0;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Titulo ====== */
+
+.titulo{
+    margin: 17px;
+    color: #c9b37e;
+}
+
+/* ===== Formulario ====== */
+
 form{
     padding: 1px;
 }
 
-form input{
-    background-color: rgb(0, 0, 0);
-    color: white;
+/* ===== Correo y Contraseña ====== */
+
+input{
+    background-color: #3a3a45;
+    color: rgba(255, 255, 255, 0.84);
     width: 90%;
     height: 50px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-}
-form button{
-    width: 100px;
-    height: 40px;
-    color: white;
-    background-color: rgb(34, 34, 34);
-}
-form button:hover{
-    width: 100px;
-    height: 40px;
-    color: white;
-    background-color: rgb(0, 0, 0);
-}
-#iniciar{
-    margin-top: 40px;
+    margin: 10px auto;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
 }
 
-#iniciar label{
-    margin: 20px;
-}
-#iniciar button{
-    color: white;
-    background-color: rgb(34, 34, 34);
-}
-#iniciar button:hover{
-    color: white;
-    background-color: rgb(0, 0, 0);
+/* ===== Boton ====== */
+
+.iniciaSesion{
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: #c9b37e;
+    color: #1e1f29;
+    text-decoration: none;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
 }
 
+.iniciaSesion:hover{
+    background-color: #e0c97a;
+}
+
+/* ===== Links ====== */
+
+.regi, .olvido{
+    color: #c9b37e;
+    text-decoration: none;
+}
+
+.regi:hover, .olvido:hover{
+    color: #e0c97a;
+    text-decoration: underline;
+}
