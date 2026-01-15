@@ -50,7 +50,7 @@
 
         $tlf = $_POST ['tlf'];
         if (!empty($tlf) && strlen($tlf)!=9){
-            $errores = "Numero Telefonico invalido";
+            $errores[] = "Numero Telefonico invalido";
         }
 
     if (empty($errores)) {
@@ -130,7 +130,7 @@
             </p>
         </div>
         <div id="iniciar">
-            <label for="iniciar">YA ESTÁS REGISTRADO?</label><button>Iniciar Sesion</button>
+            <label for="iniciar">YA ESTÁS REGISTRADO?</label><button><a href="login.php">Iniciar Sesion</a></button>
         </div>
     </main>
     <?php
