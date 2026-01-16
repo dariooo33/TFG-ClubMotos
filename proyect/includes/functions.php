@@ -2,7 +2,7 @@
 function verificarEmail($email){
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         return FALSE;
-    }else{
+    }else{  
         return TRUE;
     }
 

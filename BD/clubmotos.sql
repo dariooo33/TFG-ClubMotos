@@ -302,7 +302,7 @@ CREATE TABLE `usuario` (
   `email` varchar(30) NOT NULL,
   `contrasena` varchar(255) NOT NULL,
   `telefono` int(11) DEFAULT NULL,
-  `fecha_registro` date NOT NULL,
+  `fecha_registro` date NOT NULL DEFAULT CURRENT_DATE,
   `rol` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

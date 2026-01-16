@@ -22,6 +22,22 @@
             $errores[] = "Email invalido";
         }
 
+
+    $stmt = mysqli_prepare($db, "SELECT email FROM usuario WHERE email = ?");
+
+        if ($stmt) {        // Verifica que el correo no exista en la DB
+            mysqli_stmt_bind_param($stmt, "s", $correo);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            if (mysqli_stmt_num_rows($stmt) > 0){
+                $errores[] = "Email ya registrado";
+            }
+            mysqli_stmt_close($stmt);
+        }else{
+            $errores[] = "Fallo en la consulta"; 
+        }
+
+        
         $nombre = $_POST['nombre'];
         if(empty($nombre)){
             $errores[] = "El campo nombre esta vacio";
@@ -43,6 +59,19 @@
             $errores[] ="El nombre de usuario es muy largo (Maximo 20 caracteres)";
         }
 
+            $stmt = mysqli_prepare($db, "SELECT nombre_usuario FROM usuario WHERE nombre_usuario = ?");
+
+        if ($stmt) {        // Verifica que el usuario no exista en la DB
+            mysqli_stmt_bind_param($stmt, "s", $usuario);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            if (mysqli_stmt_num_rows($stmt) > 0){
+                $errores[] = "Nombre de usuario en uso";
+            }
+            mysqli_stmt_close($stmt);
+        }else{
+            $errores[] = "Fallo en la consulta"; 
+        }
         $contra = $_POST['contra'];
         if(empty($contra)){
             $errores[] = "contraseña invaldia";
@@ -65,7 +94,7 @@
         $contraEncriptda = password_hash($contra, PASSWORD_DEFAULT);
 
         // Preparamos la consulta
-        $stmt = mysqli_prepare($db, "INSERT INTO usuario (email, nombre_usuario, nombre, apellido, contrasena, telefono) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = mysqli_prepare($db, "INSERT INTO usuario (email, nombre_usuario, nombre, apellido, contrasena, telefono, fecha_registro) VALUES (?, ?, ?, ?, ?, ?, current_date)");
 
         if ($stmt) {
             // Asignamos los valores a los placeholders
@@ -144,4 +173,4 @@
     include_once "includes/footer.php"
     ?>    
 </body>
-
+</html>

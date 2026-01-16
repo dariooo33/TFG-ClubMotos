@@ -21,21 +21,21 @@
     <link rel="stylesheet" href="styles/header.css">
 </head>
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <?php
     include_once "includes/header.php"
     ?>
 
-    <?php
-        include_once "logout.php"
-    ?>
+    <main>
+        <div class="recuadro">
+            <img src="TFG-ClubMotos/proyect/assets/photo/plato6.png" alt="sadasd">
+            <hr>
+            <h3>Nombre de usuario</h3>
+            <br>
+            <?php
+            include_once "logout.php"
+            ?>
 
-    <div class="recuadro">
-        
-    </div>
+        </div>
+    </main>
 </body>
 </html>

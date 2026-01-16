@@ -76,7 +76,7 @@ include_once "includes/header.php";
         <br>
         <p><span>¿No tienes una cuenta?</span> <a href="register.php" class="regi">REGISTRATE</a></p>
         <br>
-        <a href="" class="olvido">¿Olvidaste tu contraseña?</a>
+        <a href="" class="olvido">¿Olvidastee tu contraseña?</a>
 
         <p>
                             <?php // Recorre errores y los va mostrando dentro del parrafo separandolos en lineas, haciendo una lista
