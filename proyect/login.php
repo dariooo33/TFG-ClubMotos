@@ -1,8 +1,13 @@
 <?php
-    // include_once "config/dbConect.php"; // Esto conecta y selecciona la base de datos
-    $db = mysqli_connect("localhost", "root", "") or die ("No se puede conectar con la DB");
-    mysqli_select_db($db,"clubmotos") or die ("No se puede seleccionar la db");
+    include_once "config/dbConect.php"; // Esto conecta y selecciona la base de datos
     include_once "includes/functions.php"; //Añade funciones predefinidas en functions.php
+    include_once "includes/authCheck.php";
+
+    if($iniciado){
+        header('Location: index.php'); // te redirige al inicio si ya hay una sesion activa
+        exit;
+    }
+
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores = [];
@@ -27,11 +32,13 @@
             if ($stmt) {
                 mysqli_stmt_bind_param($stmt, "s", $correo);
                 mysqli_stmt_execute($stmt);
-                mysqli_stmt_bind_result($stmt, $resConsult);
-                mysqli_stmt_fetch($stmt);
+                mysqli_stmt_bind_result($stmt, $resConsult); //Linkea el resultado a la variable
+                mysqli_stmt_fetch($stmt); //guarda el resultado en la variable vinculada
                 mysqli_stmt_close($stmt);
             }
-            if (password_verify($contra, $resConsult)){
+            if (password_verify($contra, $resConsult)){ 
+                $_SESSION['email'] = $email; //para guardar la referencia del usuario
+                $_SESSION['ini'] = TRUE;
                 header('Location: index.php'); // Y te redirige al inicio
                 exit;
             }else{

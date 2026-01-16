@@ -3,6 +3,13 @@
 
     include_once "includes/functions.php"; //Añade funciones predefinidas en functions.php
 
+    include_once "includes/authCheck.php";
+
+    
+    if($iniciado){
+        header('Location: index.php'); // te redirige al inicio si ya hay una sesion activa
+        exit;
+    }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores = [];
 

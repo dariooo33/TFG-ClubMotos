@@ -1,4 +1,6 @@
-
+<?php
+    include_once "includes/authCheck.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

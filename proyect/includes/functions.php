@@ -7,4 +7,6 @@ function verificarEmail($email){
     }
 
 }
+
+
 ?>
