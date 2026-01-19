@@ -107,6 +107,8 @@
             // Cerramos la sentencia
             mysqli_stmt_close($stmt);
 
+            $_SESSION['id'] = guardarIdUsuario($db, $correo);   //Guarda la referncia del usuario 
+            $_SESSION['ini'] = TRUE;
             header('Location: index.php'); // Y te redirige al inicio
             exit;
             
@@ -124,7 +126,6 @@
     <title>Registrate</title>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/register.css">
-    <link rel="stylesheet" href="styles/fondo.css">
     <link rel="stylesheet" href="styles/footer.css">
 
 </head>
@@ -133,8 +134,8 @@
     include_once "includes/header.php"
     ?>
     <main>
-        <div id="form">
-            <h1>Crear una nueva cuenta</h1>
+        <div class="recuadro">
+            <h2 class="titulo">CREA UNA NUEVA CUENTA</h2>
             <hr>
             <br>
             <form method="post">
@@ -151,8 +152,8 @@
                 <input type="password" name="contraV" required placeholder="Confirmar contraseña" require>
                 <br>
                 <input type="number"  name="tlf" placeholder="Numero de telefono" value ="<?php echo isset($_POST['tlf'])? htmlspecialchars($_POST['tlf']) :''?>" require>
-                <br><br>
-                <button>Registrate</button>
+                
+                <button class="iniciaRegister">Registrate</button>
             </form>
 
             <p>
@@ -164,13 +165,14 @@
                     }   
                 ?>
             </p>
+            <br>
+            <div id="iniciar">
+                <p><span>¿Ya tienes una cuenta?</span> <a href="login.php" class="regi">Inicia Sesion</a></p>
+            </div>
         </div>
-        <div id="iniciar">
-            <label for="iniciar">YA ESTÁS REGISTRADO?</label><button><a href="login.php">Iniciar Sesion</a></button>
-        </div>
+        
     </main>
-    <?php
-    include_once "includes/footer.php"
-    ?>    
+    <br>
+    <br>
 </body>
 </html>

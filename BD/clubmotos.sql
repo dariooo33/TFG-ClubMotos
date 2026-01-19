@@ -304,6 +304,7 @@ CREATE TABLE `usuario` (
   `telefono` int(11) DEFAULT NULL,
   `fecha_registro` date NOT NULL DEFAULT CURRENT_DATE,
   `rol` varchar(10) NOT NULL
+  `foto` varchar(30) NOT NULL DEFAULT "default.png"
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

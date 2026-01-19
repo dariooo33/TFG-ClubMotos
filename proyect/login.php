@@ -37,7 +37,7 @@
                 mysqli_stmt_close($stmt);
             }
             if (password_verify($contra, $resConsult)){ 
-                $_SESSION['email'] = $email; //para guardar la referencia del usuario
+                $_SESSION['id'] = guardarIdUsuario($db, $correo); //para guardar la referencia del usuario
                 $_SESSION['ini'] = TRUE;
                 header('Location: index.php'); // Y te redirige al inicio
                 exit;
@@ -76,16 +76,16 @@ include_once "includes/header.php";
         <br>
         <p><span>¿No tienes una cuenta?</span> <a href="register.php" class="regi">REGISTRATE</a></p>
         <br>
-        <a href="" class="olvido">¿Olvidastee tu contraseña?</a>
+        <a href="" class="olvido">¿Olvidaste tu contraseña?</a>
 
         <p>
-                            <?php // Recorre errores y los va mostrando dentro del parrafo separandolos en lineas, haciendo una lista
-                    if (!empty($errores)) {
-                        foreach ($errores as $error) {
-                            echo $error . "<br>";
-                        }
-                    }   
-                ?>
+            <?php // Recorre errores y los va mostrando dentro del parrafo separandolos en lineas, haciendo una lista
+                if (!empty($errores)) {
+                    foreach ($errores as $error) {
+                        echo $error . "<br>";
+                    }
+                }   
+            ?>
         </p>
     </div>
 </main>  
