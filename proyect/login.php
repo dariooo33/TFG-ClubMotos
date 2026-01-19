@@ -14,11 +14,9 @@
 
         //Coge los valores del formulario, y verifica que sean validos
 
-        $correo = $_POST['email'];
-        if(empty($correo)){
-            $errores[] = "El campo email esta vacio";
-        }elseif(!verificarEmail($correo)){
-            $errores[] = "Email invalido";
+        $nombre = $_POST['nombre'];
+        if(empty($nombre)){
+            $errores[] = " Nombre de usuario esta vacio";
         }
 
 
@@ -28,16 +26,16 @@
         }
 
         if (empty($errores)){
-            $stmt = mysqli_prepare($db, "SELECT contrasena FROM usuario WHERE email = ?");
+            $stmt = mysqli_prepare($db, "SELECT contrasena FROM usuario WHERE email = ? or nombre_usuario = ?");
             if ($stmt) {
-                mysqli_stmt_bind_param($stmt, "s", $correo);
+                mysqli_stmt_bind_param($stmt, "ss", $nombre,$nombre);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $resConsult); //Linkea el resultado a la variable
                 mysqli_stmt_fetch($stmt); //guarda el resultado en la variable vinculada
                 mysqli_stmt_close($stmt);
             }
             if (password_verify($contra, $resConsult)){ 
-                $_SESSION['id'] = guardarIdUsuario($db, $correo); //para guardar la referencia del usuario
+                $_SESSION['id'] = guardarIdUsuario($db, $nombre); //para guardar la referencia del usuario
                 $_SESSION['ini'] = TRUE;
                 header('Location: index.php'); // Y te redirige al inicio
                 exit;
@@ -68,7 +66,7 @@ include_once "includes/header.php";
         <hr><br>
         <form method="post">
             <!-- <button type="button" class="googleBoton"> INICIA SESION A TRAVES DE GOOGLE </button> -->
-            <input type="email" name="email" placeholder="Correo electronico"><br>
+            <input type="text" name="nombre" placeholder="Correo electronico" value="<?php echo isset($_POST['nombre'])? htmlspecialchars($_POST['nombre']) :''?>" require><br>
             <input type="password" name="contra" placeholder="Contraseña"><br>
             <button class="iniciaSesion">Inicia sesion</button>
         </form>
